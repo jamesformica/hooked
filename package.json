@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "ui": "parcel ./ui/index.html"
+  }
+}
