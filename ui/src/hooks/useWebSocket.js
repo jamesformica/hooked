@@ -19,7 +19,7 @@ function useWebSocket() {
 
   return {
     ready: !!socket,
-    ...(socket && { send: socket.send })
+    ...(socket && { send: msg => socket.send(msg) })
   }
 }
 
