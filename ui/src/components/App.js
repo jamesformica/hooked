@@ -1,15 +1,28 @@
 import React, { useContext } from 'react'
+import styled from 'styled-components'
 
-import Button from './Button'
+import Sea from './Sea'
+import Sky from './Sky'
 import Loading from './Loading'
 import HookedContext from '../context'
+
+const Wrapper = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
 
 const App = () => {
   const { ready } = useContext(HookedContext)
 
   return ready
-  ? <Button />
-  : <Loading />
+    ? (
+      <Wrapper>
+        <Sky />
+        <Sea />
+      </Wrapper>
+    )
+    : <Loading />
 }
 
 export default App
