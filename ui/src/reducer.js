@@ -1,8 +1,7 @@
 export const INITIAL_STATE = {
   ready: false,
   send: undefined,
-  numberOfFishies: 0,
-  previousValues: [],
+  freshFishes: [],
 }
 
 const reducer = (state, action) => {
@@ -10,12 +9,9 @@ const reducer = (state, action) => {
     case 'CONNECTION_SUCCESSFUL':
       return { ...state, ready: true, send: action.send }
     case 'NEW_FISHY':
-      const current = { fishies: state.numberOfFishies, date: Date.now() }
-
       return {
         ...state,
-        previousValues: [...state.previousValues, current],
-        numberOfFishies: action.numberOfFishies
+        freshFishes: action.freshFishes
       }
     default:
       return state
