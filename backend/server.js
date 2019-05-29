@@ -6,7 +6,7 @@ import { ADD_FISHY } from '../common/events'
 const { HOST, PORT, TICK_RATE, FRESH_FISH } = server
 
 // FISHY MEMORY
-let freshFishies = 0
+let freshFishies = []
 let stream = []
 
 const wss = new WebSocket.Server({ port: PORT, host: HOST })
@@ -35,9 +35,9 @@ wss.on('connection', (ws, req) => {
 
       // Add to stream and increment fishy total 
       stream.push(timeStamp)
-      ++freshFishies
+      freshFishies.push(timeStamp)
 
-      console.log(`Adding 1 fishy boi, fishies are now at ${freshFishies}`)
+      console.log(`Adding 1 fishy boi, fishies are now at ${freshFishies.length}`)
 
       ws.send(freshFishies)
     }
@@ -62,5 +62,5 @@ const broadcastFishies = () => {
 const calculateFreshTotal = () => {
   const timeNow = Date.now()
   const totalEvents = stream.filter(event => timeNow - event < FRESH_FISH)
-  return totalEvents.length
+  return totalEvents
 }
