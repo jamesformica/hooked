@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const URL = 'ws://localhost:1019'
+const URL = 'ws://10.150.36.121:1019'
 
 function useWebSocket(dispatch) {
   useEffect(() => {
@@ -13,7 +13,7 @@ function useWebSocket(dispatch) {
 
     connection.onmessage = (message) => {
       console.log('🔥', message)
-      dispatch({ type: 'NEW_FISHY', numberOfFishies: Number(message.data) })
+      dispatch({ type: 'NEW_FISHY', freshFishes: JSON.parse(message.data) })
     }
 
     return () => {

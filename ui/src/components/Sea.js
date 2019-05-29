@@ -18,7 +18,9 @@ const Sea = () => {
 
   return (
     <SeaBackground ref={sea}>
-      {fishies.map(f => <Fish key={f.id} x={f.x} y={f.y} /> )}
+      {fishies.map(f => (
+        <Fish key={f.id.toString()} timestamp={f.id} y={f.y} style={{ animationDelay: `${f.delay}ms` }} />
+      ))}
       <Boat />
       <Button />
     </SeaBackground>
