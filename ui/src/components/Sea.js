@@ -1,16 +1,18 @@
 import React, { useRef } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import useFishFarm from '../hooks/useFishFarm'
 import Fish from './Fish'
 import Boat from './Boat'
 import Button from './Button'
+import SeaGraphics from './graphics/SeaGraphics'
 
 const SeaBackground = styled.div`
+  position: absolute;
+  top: 20vh;
   width: 100vw;
   height: 80vh;
-  position: relative;
-  background: midnightblue;
+  background: linear-gradient(to bottom, transparent, #4bbede 10%);
 `
 
 const Sea = () => {
@@ -19,6 +21,7 @@ const Sea = () => {
 
   return (
     <SeaBackground ref={sea}>
+      <SeaGraphics />
       {fishies.map(f => (
         <Fish
           key={f.id.toString()}
@@ -26,7 +29,7 @@ const Sea = () => {
           timestamp={f.id}
           variant={f.variant}
           style={{ animationDelay: `${f.delay}ms` }}
-          />
+        />
       ))}
       <Boat />
       <Button />

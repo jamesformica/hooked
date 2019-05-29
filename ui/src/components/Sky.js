@@ -1,8 +1,17 @@
+import React from 'react'
 import styled from 'styled-components'
 
+import SkyGraphics from './graphics/SkyGraphics'
+
 const Sky = styled.div`
-  height: 20vh;
-  background: skyblue;
+  position: absolute;
+  width: 100%;
+  height: 50vh;
+  background: black;
 `
 
-export default Sky
+export default () => (
+  <Sky>
+    <SkyGraphics />
+  </Sky>
+)

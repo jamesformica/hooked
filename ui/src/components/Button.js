@@ -15,6 +15,7 @@ const ClickMe = styled.button`
   border: 0;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   background: transparent;
+  user-select: none;
 `
 
 const Button = () => {
