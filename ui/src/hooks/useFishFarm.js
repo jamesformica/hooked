@@ -11,11 +11,11 @@ function useFishFarm(sea) {
   const [fishies, setFishies] = useState([])
 
   useEffect(() => {
+    const { width, height } = sea.current.getBoundingClientRect()
+
     const aliveFishies = fishies.filter(f => Date.now() - f.born < SWIM_DURATION)
 
     range(numberOfFishies - aliveFishies.length).map(() => {
-      const { width, height } = sea.current.getBoundingClientRect()
-
       aliveFishies.push({
         id: uuid(),
         x: random(width / 2),
