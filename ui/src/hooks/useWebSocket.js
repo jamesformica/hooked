@@ -2,25 +2,23 @@ import { useEffect, useState } from 'react'
 
 const URL = 'ws://localhost:1019'
 
-function useWebSocket() {
-  const [socket, setSocket] = useState()
-
+function useWebSocket(dispatch) {
   useEffect(() => {
     const connection = new WebSocket(URL)
 
     connection.onopen = () => {
-      setSocket(connection)
+      const send = msg => connection.send(msg)
+      dispatch({ type: 'CONNECTION_SUCCESSFUL', send })
+    }
+
+    connection.onmessage = (message) => {
+      dispatch({ type: 'ABC', numberOfFishies: message })
     }
 
     return () => {
       connection.close()
     }
   }, [])
-
-  return {
-    ready: !!socket,
-    ...(socket && { send: msg => socket.send(msg) })
-  }
 }
 
 export default useWebSocket
