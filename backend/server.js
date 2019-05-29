@@ -1,9 +1,14 @@
 const WebSocket = require('ws')
 
 const PORT = 1019
-const wss = new WebSocket.Server({ port: PORT })
+const HOST = `0.0.0.0`
+const wss = new WebSocket.Server({ port: PORT, host: HOST })
 
-console.log("starting server on https://localhost:1019")
+
+wss.on('listening', () => {
+  const { port, address } = wss.address();
+  console.log(`starting server on https://${address}:${port}`)
+})
 
 wss.on('connection', (ws, req) => {
   const ip = req.connection.remoteAddress
