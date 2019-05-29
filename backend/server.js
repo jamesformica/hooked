@@ -26,7 +26,7 @@ wss.on('connection', (ws, req) => {
   console.log(`client connected from ${ip}`)
 
   // On connection send fishy total
-  ws.send(freshFishies)
+  ws.send(formatFishies(freshFishies))
 
   // Recieving add fishy event
   ws.on('message', message => {
@@ -39,22 +39,22 @@ wss.on('connection', (ws, req) => {
 
       console.log(`Adding 1 fishy boi, fishies are now at ${freshFishies.length}`)
 
-      ws.send(freshFishies)
+      ws.send(formatFishies(freshFishies))
     }
   })
 })
 
 const broadcastLoop = () => {
   freshFishies = calculateFreshTotal()
+  console.log(`Broadcasting to clients, fishies: ${freshFishies.length}`)
   broadcastFishies()
   setTimeout(broadcastLoop, TICK_RATE)
 }
 
 const broadcastFishies = () => {
-  console.log(`Broadcasting to clients`)
   wss.clients.forEach((client) => {
     if (client.readyState === WebSocket.OPEN) {
-      client.send(freshFishies)
+      client.send(formatFishies(freshFishies))
     }
   })
 }
@@ -64,3 +64,5 @@ const calculateFreshTotal = () => {
   const totalEvents = stream.filter(event => timeNow - event < FRESH_FISH)
   return totalEvents
 }
+
+const formatFishies = (fishies) => JSON.stringify(fishies)
