@@ -29,7 +29,16 @@ wss.on('connection', (ws, req) => {
     if (message === ADD_FISHY) {
       ++fishies
       console.log(`Adding 1 fishy boi, fishies are now at ${fishies}`)
-      ws.send(fishies)
+
+      ws.send(fishies);
+
+      // We might need to debounce this to reduce overall load
+      console.log(`Broadcasting to clients`)
+      wss.clients.forEach((client) => {
+        if (client !== ws && client.readyState === WebSocket.OPEN) {
+          client.send(fishies)
+        }
+      })
     }
   });
 });
