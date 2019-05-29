@@ -12,7 +12,8 @@ function useWebSocket(dispatch) {
     }
 
     connection.onmessage = (message) => {
-      dispatch({ type: 'ABC', numberOfFishies: message })
+      console.log('🔥', message)
+      dispatch({ type: 'NEW_FISHY', numberOfFishies: Number(message.data) })
     }
 
     return () => {
