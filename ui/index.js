@@ -1,22 +1,21 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import ReactDOM from 'react-dom'
 
-import HookedContext from './src/context'
-import Button from './src/components/Button'
-import Loading from './src/components/Loading'
+import reducer, { INITIAL_STATE } from './src/reducer'
 import useWebSocket from './src/hooks/useWebSocket'
+import App from './src/components/App'
+import HookedContext from './src/context'
 
-const App = () => {
-  const { ready, send } = useWebSocket()
+const Root = () => {
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
+
+  useWebSocket(dispatch)
 
   return (
-    <HookedContext.Provider value={{ send }}>
-      {ready
-        ? <Button />
-        : <Loading />
-      }
+    <HookedContext.Provider value={state}>
+      <App />
     </HookedContext.Provider>
   )
 }
 
-ReactDOM.render(<App />, global.document.getElementById('root'))
+ReactDOM.render(<Root />, global.document.getElementById('root'))
