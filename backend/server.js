@@ -27,7 +27,7 @@ wss.on('connection', (ws, req) => {
     console.log('received: %s', message)
 
     if (message === ADD_FISHY) {
-      console.lo('Adding 1 fishy boi')
+      console.log('Adding 1 fishy boi')
       ++fishies
       ws.send(fishies)
     }
