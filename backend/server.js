@@ -1,13 +1,16 @@
 const WebSocket = require('ws')
+const chalk = require('chalk');
 
 const PORT = 1019
 const HOST = `0.0.0.0`
-const wss = new WebSocket.Server({ port: PORT, host: HOST })
 
+const wss = new WebSocket.Server({ port: PORT, host: HOST })
 
 wss.on('listening', () => {
   const { port, address } = wss.address();
-  console.log(`starting server on https://${address}:${port}`)
+  console.log(`Server running at ${chalk.bold.magenta(
+    `http://${address || 'localhost'}:${port}`
+  )}`)
 })
 
 wss.on('connection', (ws, req) => {
