@@ -1,12 +1,9 @@
-const WebSocket = require('ws')
-const chalk = require('chalk');
+import WebSocket from 'ws'
+import chalk from 'chalk'
 
-//  SERVER CONSTS
-const PORT = 1019
-const HOST = `0.0.0.0`
-
-// EVENT CONSTS
-const addFishy = 'addFishy'
+import { server } from '../common/consts'
+import { ADD_FISHY } from '../common/events'
+const { HOST, PORT } = server
 
 // FISHY MEMORY
 let fishies = 0
@@ -29,7 +26,7 @@ wss.on('connection', (ws, req) => {
   ws.on('message', message => {
     console.log('received: %s', message)
 
-    if (message === addFishy) {
+    if (message === ADD_FISHY) {
       console.lo('Adding 1 fishy boi')
       ++fishies
       ws.send(fishies)
