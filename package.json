@@ -1,5 +1,20 @@
 {
+  "name": "hooked",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "ui": "parcel ./ui/index.html"
+    "start:ui": "parcel ./ui/index.html",
+    "start": "yarn start:ui"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "parcel-bundler": "^1.12.3"
   }
 }
