@@ -7,7 +7,8 @@ import Boat from './Boat'
 import Button from './Button'
 
 const SeaBackground = styled.div`
-  flex-grow: 1;
+  width: 100vw;
+  height: 80vh;
   position: relative;
   background: midnightblue;
 `

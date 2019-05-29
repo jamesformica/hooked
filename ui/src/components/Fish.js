@@ -45,7 +45,7 @@ const funSwim = keyframes`
 }
 
 30% {
-  transform: translate(60vw, 0) rotate(360deg) scale(2);
+  transform: translate(60vw, 0) rotate(360deg) scale(1.5);
 }
 
 50% {

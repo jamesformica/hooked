@@ -1,5 +1,4 @@
 import { useContext, useState, useEffect } from 'react'
-import random from 'lodash/random'
 
 import HookedContext from '../context'
 
