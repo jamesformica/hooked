@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 import useFishFarm from '../hooks/useFishFarm'
 import Fish from './Fish'
@@ -28,7 +28,7 @@ const Sea = () => {
           y={f.y}
           timestamp={f.id}
           variant={f.variant}
-          style={{ animationDelay: `${f.delay}ms` }}
+          delay={f.delay}
         />
       ))}
       <Boat />

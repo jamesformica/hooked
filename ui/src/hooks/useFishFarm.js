@@ -14,7 +14,7 @@ function useFishFarm(sea) {
       id: fishy,
       y: fishy % height,
       delay: fishy % 1000,
-      variant: fishy % 3
+      variant: fishy % 3,
     }))
 
     setFishies(newFishies)

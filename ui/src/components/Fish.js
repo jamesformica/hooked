@@ -1,29 +1,45 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
+import sample from 'lodash/sample'
 
 import { server } from '../../../common/consts'
+import fish1 from '../images/fish-1.png'
+import fish2 from '../images/fish-2.png'
+import fish3 from '../images/fish-3.png'
+import fish4 from '../images/fish-4.png'
+import shark1 from '../images/shark-1.png'
+import shark2 from '../images/shark-2.png'
+
+const FISHY_SPRITES = [
+  { url: fish1, small: true },
+  { url: fish2, small: true },
+  { url: fish3, small: true },
+  { url: fish4, small: true },
+  { url: shark1, small: false },
+  { url: shark2, small: false }
+]
 
 const bigSwim = keyframes`
   0% {
-    transform: translate(100vw, 0);
+    transform: translate(100vw, 0) rotateY(0);
   }
 
   30%,
   50%,
   70%,
   90% {
-    transform: translate(50vw, 10%);
+    transform: translate(50vw, 10%) rotateY(0);
   }
 
   20%,
   40%,
   60%,
   80% {
-    transform: translate(40vw, 0%);
+    transform: translate(40vw, 0%) rotateY(180deg);
   }
 
   100% {
-    transform: translate(calc(0vw - 400%), 0);
+    transform: translate(calc(0vw - 400%), 0) rotateY(0);
   }
 `
 
@@ -103,12 +119,10 @@ const swimly = keyframes`
 
 `
 
-const Fish = styled.div`
+const Fish = styled.img`
   position: absolute;
   top: ${props => props.y}px;
-  width: 20px;
-  height: 5px;
-  background: white;
+  background-size: cover;
   transform: translate(100vw, 0);
   animation-duration: ${server.FRESH_FISH - 1000}ms;
   animation-fill-mode: forwards;
@@ -132,7 +146,13 @@ class FishyBoi extends React.Component {
   }
 
   render() {
-    return <Fish {...this.props} />
+    const sprite = sample(FISHY_SPRITES)
+    const style = {
+      height: sprite.small ? '4vh' : '10vh',
+      animationDelay: `${this.props.delay}ms`,
+    }
+
+    return <Fish {...this.props} style={style} src={sprite.url} />
   }
 }
 
