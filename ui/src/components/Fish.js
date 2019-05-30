@@ -10,11 +10,11 @@ import fish4 from '../images/fish-4.png'
 import shark1 from '../images/shark-1.png'
 
 const FISHY_SPRITES = [
-  { url: fish1, small: true },
-  { url: fish2, small: true },
-  { url: fish3, small: true },
-  { url: fish4, small: true },
-  { url: shark1, small: false },
+  { url: fish1, small: true, chance: 0.5 },
+  { url: fish2, small: true, chance: 0.5 },
+  { url: fish3, small: true, chance: 0.5 },
+  { url: fish4, small: true, chance: 0.5 },
+  { url: shark1, small: false, chance: 0.1 },
 ]
 
 const bigSwim = keyframes`
@@ -144,7 +144,15 @@ class FishyBoi extends React.Component {
   }
 
   render() {
-    const sprite = sample(FISHY_SPRITES)
+    let sprite
+
+    do {
+      const currentSprite = sample(FISHY_SPRITES)
+      if (Math.random() < currentSprite.chance) {
+        sprite = currentSprite
+      }
+    } while (!sprite)
+
     const style = {
       height: sprite.small ? '4vh' : '10vh',
       animationDelay: `${this.props.delay}ms`,

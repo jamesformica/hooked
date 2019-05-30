@@ -34,7 +34,7 @@ const GraphicTop = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-size: 100% 70vh;
+  background-size: auto 70vh;
   background-repeat-y: no-repeat;
 `
 
