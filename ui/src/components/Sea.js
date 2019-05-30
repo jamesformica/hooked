@@ -17,10 +17,10 @@ const SeaBackground = styled.div`
 
 const FishWrapper = styled.div`
   position: absolute;
-  top: 0;
+  top: 10%;
   left: 0;
   width: 100%;
-  height: 100%
+  height: 80%;
   overflow: hidden;
   z-index: 100;
 `
@@ -30,9 +30,9 @@ const Sea = () => {
   const fishies = useFishFarm(sea)
 
   return (
-    <SeaBackground ref={sea}>
+    <SeaBackground>
       <SeaGraphics />
-      <FishWrapper>
+      <FishWrapper ref={sea}>
         {fishies.map(f => (
           <Fish
             key={f.id.toString()}
