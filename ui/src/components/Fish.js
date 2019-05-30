@@ -119,7 +119,6 @@ const swimly = keyframes`
 
 const Fish = styled.img`
   position: absolute;
-  top: ${props => props.y}px;
   width: auto;
   background-size: cover;
   transform: translate(100vw, 0);
@@ -161,9 +160,11 @@ class FishyBoi extends React.Component {
   render() {
     const sprite = getFishy()
     const style = {
+      top: `${this.props.y}px`,
       height: sprite.small ? '4vh' : '10vh',
       animationDelay: `${this.props.delay}ms`,
       filter: `hue-rotate(${this.props.delay}deg)`,
+      mixBlendMode: 'multiply',
     }
 
     return <Fish {...this.props} style={style} src={sprite.url} />

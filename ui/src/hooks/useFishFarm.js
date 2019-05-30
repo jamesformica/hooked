@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from 'react'
+import random from 'lodash/random'
 
 import HookedContext from '../context'
 
@@ -6,7 +7,7 @@ const SPAWN_BUFFER = 100
 
 const makeFishy = height => fishy => ({
   id: fishy.id,
-  y: Math.max(SPAWN_BUFFER, Math.round(fishy.time % height)),
+  y: random(SPAWN_BUFFER, height),
   delay: fishy.time % 1000,
   variant: fishy.time % 3,
 })
