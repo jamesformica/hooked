@@ -6,3 +6,8 @@ body,
 button {
   font-family: 'Lobster', cursive;
 }
+
+* {  
+  -webkit-backface-visibility:  hidden;
+  -webkit-tap-highlight-color:  transparent;
+}
