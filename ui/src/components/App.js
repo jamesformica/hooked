@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import Sea from './Sea'
 import Sky from './Sky'
+import Count from './Count'
 import Status from './Status'
 import HookedContext from '../context'
 
@@ -12,13 +13,14 @@ const Wrapper = styled.div`
 `
 
 const App = () => {
-  const { status } = useContext(HookedContext)
+  const { status, freshFishes } = useContext(HookedContext)
 
   return (
     <Wrapper>
       <Sky />
       <Sea />
       <Status status={status} />
+      <Count count={freshFishes.length} />
     </Wrapper>
   )
 }
