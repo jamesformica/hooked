@@ -17,10 +17,10 @@ const SeaBackground = styled.div`
 
 const FishWrapper = styled.div`
   position: absolute;
-  top: 10%;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 80%;
+  height: 100%;
   overflow: hidden;
   z-index: 100;
 `
@@ -35,9 +35,8 @@ const Sea = () => {
       <FishWrapper ref={sea}>
         {fishies.map(f => (
           <Fish
-            key={f.id.toString()}
+            key={f.id}
             y={f.y}
-            timestamp={f.id}
             variant={f.variant}
             delay={f.delay}
           />

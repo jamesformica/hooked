@@ -9,7 +9,7 @@ const reducer = (state, action) => {
     case 'CONNECTION_SUCCESSFUL':
       return { ...state, status: 'Connected', send: action.send }
     case 'CONNECTION_TERMINATED':
-        return { ...state, status: 'Disconnected', send: undefined }
+        return { ...state, status: 'Error: Refresh Page', send: undefined }
     case 'NEW_FISHY':
       return {
         ...state,
