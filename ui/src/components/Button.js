@@ -16,6 +16,8 @@ const ClickMe = styled.button`
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   background: transparent;
   user-select: none;
+  z-index: 10000;
+  -webkit-tap-highlight-color: transparent;
 `
 
 const Text = styled.span`

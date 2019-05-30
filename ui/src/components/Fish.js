@@ -120,6 +120,7 @@ const swimly = keyframes`
 const Fish = styled.img`
   position: absolute;
   top: ${props => props.y}px;
+  width: auto;
   background-size: cover;
   transform: translate(100vw, 0);
   animation-duration: ${server.FRESH_FISH - 1000}ms;
@@ -138,13 +139,8 @@ const Fish = styled.img`
   `}
 `
 
-class FishyBoi extends React.Component {
-  shouldComponentUpdate() {
-    return false
-  }
-
-  render() {
-    let sprite
+const getFishy = () => {
+  let sprite
 
     do {
       const currentSprite = sample(FISHY_SPRITES)
@@ -153,6 +149,16 @@ class FishyBoi extends React.Component {
       }
     } while (!sprite)
 
+    return sprite
+}
+
+class FishyBoi extends React.Component {
+  shouldComponentUpdate() {
+    return false
+  }
+
+  render() {
+    const sprite = getFishy()
     const style = {
       height: sprite.small ? '4vh' : '10vh',
       animationDelay: `${this.props.delay}ms`,
