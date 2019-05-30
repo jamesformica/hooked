@@ -15,9 +15,12 @@ function useWebSocket(dispatch) {
       dispatch({ type: 'NEW_FISHY', freshFishes: JSON.parse(message.data) })
     }
 
+    connection.onclose = () => {
+      dispatch({ type: 'CONNECTION_TERMINATED' })
+    }
+
     return () => {
       connection.close()
-      dispatch({ type: 'CONNECTION_TERMINATED' })
     }
   }, [])
 }

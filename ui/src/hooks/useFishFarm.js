@@ -2,6 +2,8 @@ import { useContext, useState, useEffect } from 'react'
 
 import HookedContext from '../context'
 
+const SPAWN_BUFFER = 100
+
 function useFishFarm(sea) {
   const { freshFishes } = useContext(HookedContext)
 
@@ -11,10 +13,10 @@ function useFishFarm(sea) {
     const { height } = sea.current.getBoundingClientRect()
 
     const newFishies = freshFishes.map(fishy => ({
-      id: fishy,
-      y: fishy % height,
-      delay: fishy % 1000,
-      variant: fishy % 3,
+      id: fishy.id,
+      y: Math.max(SPAWN_BUFFER, fishy.time % height),
+      delay: fishy.time % 1000,
+      variant: fishy.time % 3,
     }))
 
     setFishies(newFishies)
