@@ -1,5 +1,6 @@
 import WebSocket from 'ws'
 import chalk from 'chalk'
+import uuid from 'uuid/v4'
 
 import { server } from '../common/consts'
 import { ADD_FISHY } from '../common/events'
@@ -31,11 +32,12 @@ wss.on('connection', (ws, req) => {
   // Recieving add fishy event
   ws.on('message', message => {
     if (message === ADD_FISHY) {
-      const timeStamp = Date.now()
+      const time = Date.now()
+      const id = `${uuid()}`
 
       // Add to stream and increment fishy total 
-      stream.push(timeStamp)
-      freshFishies.push(timeStamp)
+      stream.push({ id, time })
+      freshFishies.push(id)
 
       console.log(`Adding 1 fishy boi, fishies are now at ${freshFishies.length}`)
 
@@ -61,7 +63,7 @@ const broadcastFishies = () => {
 
 const calculateFreshTotal = () => {
   const timeNow = Date.now()
-  const totalEvents = stream.filter(event => timeNow - event < FRESH_FISH)
+  const totalEvents = stream.filter(event => timeNow - event.time < FRESH_FISH)
   return totalEvents
 }
 
