@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
+import bgStyle from '../../helpers/bg'
 import ocean from '../../images/ocean.png'
 import oceanbg from '../../images/bg_ocean.png'
 import oceanbg2 from '../../images/bg_ocean_2.png'
@@ -50,31 +51,22 @@ const GraphicBottom = styled.div`
 
 const Ocean = styled(GraphicTop)`
   top: -25%;
-  background-image: url('${ocean}');
   animation: ${wave} 5s infinite;
 `
 
 const OceanBg = styled(GraphicTop)`
   top: -20%;
-  background-image: url('${oceanbg}');
 `
 
-const OceanBg2 = styled(GraphicTop)`
-  background-image: url('${oceanbg2}');
-`
+const OceanBg2 = styled(GraphicTop)``
 
-const Ground = styled(GraphicBottom)`
-  background-image: url('${ground}');
-`
+const Ground = styled(GraphicBottom)``
 
 const Coral = styled(GraphicBottom)`
-  background-image: url('${coral}');
   animation: ${sway} 10s infinite;
 `
 
-const Sealife = styled(GraphicBottom)`
-  background-image: url('${fish}');
-`
+const Sealife = styled(GraphicBottom)``
 
 class SeaGraphics extends React.Component {
   shouldComponentUpdate() {
@@ -84,12 +76,12 @@ class SeaGraphics extends React.Component {
   render() {
     return (
       <>
-        <Ocean />
-        <OceanBg />
-        <OceanBg2 />
-        <Sealife />
-        <Coral />
-        <Ground />
+        <Ocean style={bgStyle(ocean)} />
+        <OceanBg style={bgStyle(oceanbg)} />
+        <OceanBg2 style={bgStyle(oceanbg2)} />
+        <Sealife style={bgStyle(fish)} />
+        <Coral style={bgStyle(coral)} />
+        <Ground style={bgStyle(ground)} />
       </>
     )
   }

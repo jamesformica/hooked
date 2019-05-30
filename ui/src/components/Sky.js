@@ -9,8 +9,18 @@ const Sky = styled.div`
   height: 50vh;
 `
 
-export default () => (
-  <Sky>
-    <SkyGraphics />
-  </Sky>
-)
+class SkyBoi extends React.Component {
+  shouldComponentUpdate() {
+    return false
+  }
+
+  render() {
+    return (
+      <Sky>
+        <SkyGraphics />
+      </Sky>
+    )
+  }
+}
+
+export default SkyBoi

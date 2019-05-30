@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import bgStyle from '../../helpers/bg'
 import sky from '../../images/sky.png'
 import sun from '../../images/sun.png'
 
@@ -8,7 +9,6 @@ const Skyline = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url('${sky}');
   background-size: cover;
   background-repeat-y: no-repeat;
 `
@@ -17,7 +17,6 @@ const Sun = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url('${sun}');
   background-repeat: no-repeat;
   background-size: cover;
 `
@@ -30,8 +29,8 @@ class SkyGraphics extends React.Component {
   render() {
     return (
       <>
-        <Skyline />
-        <Sun />
+        <Skyline style={bgStyle(sky)} />
+        <Sun style={bgStyle(sun)} />
       </>
     )
   }

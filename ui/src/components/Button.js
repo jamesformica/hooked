@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { ADD_FISHY } from '../../../common/events'
 import HookedContext from '../context'
 
-const ClickMe = styled.button`
+const ClickMe = styled.div`
   position: absolute;
   top: 0;
   left: 0;
