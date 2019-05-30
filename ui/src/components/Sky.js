@@ -7,7 +7,6 @@ const Sky = styled.div`
   position: absolute;
   width: 100%;
   height: 50vh;
-  background: black;
 `
 
 export default () => (

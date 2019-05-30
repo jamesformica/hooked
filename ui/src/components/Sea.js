@@ -6,7 +6,6 @@ import Fish from './Fish'
 import Boat from './Boat'
 import Button from './Button'
 import SeaGraphics from './graphics/SeaGraphics'
-import { relative } from 'upath';
 
 const SeaBackground = styled.div`
   position: absolute;
@@ -17,7 +16,12 @@ const SeaBackground = styled.div`
 `
 
 const FishWrapper = styled.div`
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%
+  overflow: hidden;
   z-index: 100;
 `
 
