@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const URL = 'ws://localhost:1019'
+const URL = 'ws://10.150.36.123:1019'
 
 function useWebSocket(dispatch) {
   useEffect(() => {

@@ -12,7 +12,17 @@ const SeaBackground = styled.div`
   top: 20vh;
   width: 100vw;
   height: 80vh;
-  background: linear-gradient(to bottom, transparent, #4bbede 10%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0), #4bbede 10%);
+`
+
+const FishWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%
+  overflow: hidden;
+  z-index: 100;
 `
 
 const Sea = () => {
@@ -22,15 +32,17 @@ const Sea = () => {
   return (
     <SeaBackground ref={sea}>
       <SeaGraphics />
-      {fishies.map(f => (
-        <Fish
-          key={f.id.toString()}
-          y={f.y}
-          timestamp={f.id}
-          variant={f.variant}
-          delay={f.delay}
-        />
-      ))}
+      <FishWrapper>
+        {fishies.map(f => (
+          <Fish
+            key={f.id.toString()}
+            y={f.y}
+            timestamp={f.id}
+            variant={f.variant}
+            delay={f.delay}
+          />
+        ))}
+      </FishWrapper>
       <Boat />
       <Button />
     </SeaBackground>

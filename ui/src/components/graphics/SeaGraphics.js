@@ -35,7 +35,7 @@ const GraphicTop = styled.div`
   width: 100%;
   height: 100%;
   background-size: auto 70vh;
-  background-repeat-y: no-repeat;
+  background-repeat: repeat-x;
 `
 
 const GraphicBottom = styled.div`
@@ -44,7 +44,7 @@ const GraphicBottom = styled.div`
   width: 100%;
   height: 100%;
   background-size: auto 70vh;
-  background-repeat-y: no-repeat;
+  background-repeat: repeat-x;
   background-position: bottom;
 `
 

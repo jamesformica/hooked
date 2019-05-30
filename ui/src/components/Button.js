@@ -17,6 +17,8 @@ const ClickMe = styled.button`
   background: transparent;
   user-select: none;
   transform: translate3d(0, 0, 0);
+  z-index: 10000;
+  -webkit-tap-highlight-color: transparent;
 `
 
 const Text = styled.span`
