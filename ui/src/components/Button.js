@@ -18,8 +18,16 @@ const ClickMe = styled.button`
   user-select: none;
 `
 
+const Text = styled.span`
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  font-size: 2rem;
+  transform: translateX(-50%);
+`
+
 const Button = () => {
-  const { send, freshFishes } = useContext(HookedContext)
+  const { send } = useContext(HookedContext)
 
   const windyBoi = () => {
     send(ADD_FISHY)
@@ -27,7 +35,7 @@ const Button = () => {
 
   return (
     <ClickMe type="button" onClick={windyBoi}>
-      YAS! {freshFishes.length}
+      <Text>Click the ocean to upvote</Text>
     </ClickMe>
   )
 }
