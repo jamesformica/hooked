@@ -8,7 +8,6 @@ import fish2 from '../images/fish-2.png'
 import fish3 from '../images/fish-3.png'
 import fish4 from '../images/fish-4.png'
 import shark1 from '../images/shark-1.png'
-import shark2 from '../images/shark-2.png'
 
 const FISHY_SPRITES = [
   { url: fish1, small: true },
@@ -16,7 +15,6 @@ const FISHY_SPRITES = [
   { url: fish3, small: true },
   { url: fish4, small: true },
   { url: shark1, small: false },
-  { url: shark2, small: false }
 ]
 
 const bigSwim = keyframes`
@@ -45,35 +43,35 @@ const bigSwim = keyframes`
 
 const funSwim = keyframes`
 0% {
-  transform: translate(100vw, 0) rotate(0) scale(1);
+  transform: translate(100vw, 0) rotate(0) scale(1) rotateY(0);
 }
 
 5% {
-  transform: translate(90vw, 0) rotate(0) scale(1);
+  transform: translate(90vw, 0) rotate(0) scale(1) rotateY(0);
 }
 
 10% {
-  transform: translate(80vw, -10px) rotate(360deg) scale(1);
+  transform: translate(80vw, -10px) rotate(360deg) scale(1) rotateY(0);
 }
 
 20% {
-  transform: translate(30vw, 0) rotate(360deg) scale(1);
+  transform: translate(30vw, 0) rotate(360deg) scale(1) rotateY(180deg);
 }
 
 30% {
-  transform: translate(60vw, 0) rotate(360deg) scale(1.5);
+  transform: translate(60vw, 0) rotate(360deg) scale(1.5) rotateY(0);
 }
 
 50% {
-  transform: translate(60vw, 100px) rotate(360deg) scale(0.4);
+  transform: translate(60vw, 100px) rotate(270deg) scale(0.4) rotateY(0);
 }
 
 80% {
-  transform: translate(30vw, 0) rotate(360deg) scale(1);
+  transform: translate(30vw, 0) rotate(360deg) scale(1) rotateY(360deg);
 }
 
 100% {
-  transform: translate(calc(0vw - 400%), 0) rotate(0) scale(1);
+  transform: translate(calc(0vw - 400%), 0) rotate(0) scale(1) rotateY(360deg);
 }
 `
 

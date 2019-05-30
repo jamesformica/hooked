@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Sea from './Sea'
 import Sky from './Sky'
-import Loading from './Loading'
+import Status from './Status'
 import HookedContext from '../context'
 
 const Wrapper = styled.div`
@@ -12,16 +12,15 @@ const Wrapper = styled.div`
 `
 
 const App = () => {
-  const { ready } = useContext(HookedContext)
+  const { status } = useContext(HookedContext)
 
-  return ready
-    ? (
-      <Wrapper>
-        <Sky />
-        <Sea />
-      </Wrapper>
-    )
-    : <Loading />
+  return (
+    <Wrapper>
+      <Sky />
+      <Sea />
+      <Status status={status} />
+    </Wrapper>
+  )
 }
 
 export default App

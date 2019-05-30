@@ -1,5 +1,5 @@
 export const INITIAL_STATE = {
-  ready: false,
+  status: 'Connecting...',
   send: undefined,
   freshFishes: [],
 }
@@ -7,7 +7,9 @@ export const INITIAL_STATE = {
 const reducer = (state, action) => {
   switch (action.type) {
     case 'CONNECTION_SUCCESSFUL':
-      return { ...state, ready: true, send: action.send }
+      return { ...state, status: 'Connected', send: action.send }
+    case 'CONNECTION_TERMINATED':
+        return { ...state, status: 'Disconnected', send: undefined }
     case 'NEW_FISHY':
       return {
         ...state,
