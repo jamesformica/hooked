@@ -82,33 +82,33 @@ const swimly = keyframes`
 
   10%,
   90% {
-    transform: translate(75vw, -100%);
+    transform: translate(75vw, -5vh);
   }
 
   15% {
-    transform: translate(80vw, 100%);
+    transform: translate(80vw, 10vh);
   }
 
   30%,
   70% {
-    transform: translate(10vw, 500%);
+    transform: translate(10vw, 5vh);
   }
 
   50% {
-    transform: translate(50vw, -500%);
+    transform: translate(50vw, -5vh);
   }
 
   20%,
   40% {
-    transform: translate(80vw, -1000%);
+    transform: translate(80vw, 7vh);
   }
 
   60% {
-    transform: translate(80vw, -500%);
+    transform: translate(80vw, -10vh);
   }
 
   80% {
-    transform: translate(75vw, -10%);
+    transform: translate(75vw, -10vh);
   }
 
   100% {
