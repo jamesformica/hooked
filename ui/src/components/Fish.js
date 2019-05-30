@@ -14,7 +14,7 @@ const FISHY_SPRITES = [
   { url: fish2, small: true, chance: 0.5 },
   { url: fish3, small: true, chance: 0.5 },
   { url: fish4, small: true, chance: 0.5 },
-  { url: shark1, small: false, chance: 0.1 },
+  { url: shark1, small: false, chance: 0.05 },
 ]
 
 const bigSwim = keyframes`
@@ -26,7 +26,7 @@ const bigSwim = keyframes`
   50%,
   70%,
   90% {
-    transform: translate(50vw, 10%) rotateY(0);
+    transform: translate(55vw, 10%) rotateY(0);
   }
 
   20%,
@@ -59,7 +59,7 @@ const funSwim = keyframes`
 }
 
 30% {
-  transform: translate(60vw, 0) rotateZ(360deg) scale(1.5) rotateY(0);
+  transform: translate(64vw, 0) rotateZ(360deg) scale(1.5) rotateY(0);
 }
 
 50% {
@@ -67,7 +67,7 @@ const funSwim = keyframes`
 }
 
 80% {
-  transform: translate(30vw, 0) rotateZ(360deg) scale(1) rotateY(360deg);
+  transform: translate(38vw, 0) rotateZ(360deg) scale(1) rotateY(360deg);
 }
 
 100% {
@@ -86,29 +86,29 @@ const swimly = keyframes`
   }
 
   15% {
-    transform: translate(80vw, 10vh);
+    transform: translate(78vw, 10vh);
   }
 
   30%,
   70% {
-    transform: translate(10vw, 5vh);
+    transform: translate(12vw, 5vh);
   }
 
   50% {
-    transform: translate(50vw, -5vh);
+    transform: translate(52vw, -5vh);
   }
 
   20%,
   40% {
-    transform: translate(80vw, 7vh);
+    transform: translate(83vw, 7vh);
   }
 
   60% {
-    transform: translate(80vw, -10vh);
+    transform: translate(81vw, -10vh);
   }
 
   80% {
-    transform: translate(75vw, -10vh);
+    transform: translate(73vw, -10vh);
   }
 
   100% {
@@ -163,6 +163,7 @@ class FishyBoi extends React.Component {
     const style = {
       height: sprite.small ? '4vh' : '10vh',
       animationDelay: `${this.props.delay}ms`,
+      filter: `hue-rotate(${this.props.delay}deg)`,
     }
 
     return <Fish {...this.props} style={style} src={sprite.url} />

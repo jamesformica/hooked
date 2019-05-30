@@ -24,6 +24,7 @@ const StyledBoat = styled.img`
   top: calc(${SIZE.h} / 2 * -1);
   left: calc(50% - ${SIZE.w} / 2);
   width: 200px;
+  filter: hue-rotate(265deg);
   animation-name: ${float};
   animation-duration: 5s;
   animation-iteration-count: infinite;
