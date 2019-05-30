@@ -34,10 +34,11 @@ wss.on('connection', (ws, req) => {
     if (message === ADD_FISHY) {
       const time = Date.now()
       const id = `${uuid()}`
+      const fishyData = { id, time }
 
       // Add to stream and increment fishy total 
-      stream.push({ id, time })
-      freshFishies.push(id)
+      stream.push(fishyData)
+      freshFishies.push(fishyData)
 
       console.log(`Adding 1 fishy boi, fishies are now at ${freshFishies.length}`)
 
