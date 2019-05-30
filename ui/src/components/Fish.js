@@ -43,35 +43,35 @@ const bigSwim = keyframes`
 
 const funSwim = keyframes`
 0% {
-  transform: translate(100vw, 0) rotate(0) scale(1) rotateY(0);
+  transform: translate(100vw, 0) rotateZ(0) scale(1) rotateY(0);
 }
 
 5% {
-  transform: translate(90vw, 0) rotate(0) scale(1) rotateY(0);
+  transform: translate(90vw, 0) rotateZ(0) scale(1) rotateY(0);
 }
 
 10% {
-  transform: translate(80vw, -10px) rotate(360deg) scale(1) rotateY(0);
+  transform: translate(80vw, -10px) rotateZ(360deg) scale(1) rotateY(0);
 }
 
 20% {
-  transform: translate(30vw, 0) rotate(360deg) scale(1) rotateY(180deg);
+  transform: translate(30vw, 0) rotateZ(360deg) scale(1) rotateY(180deg);
 }
 
 30% {
-  transform: translate(60vw, 0) rotate(360deg) scale(1.5) rotateY(0);
+  transform: translate(60vw, 0) rotateZ(360deg) scale(1.5) rotateY(0);
 }
 
 50% {
-  transform: translate(60vw, 100px) rotate(270deg) scale(0.4) rotateY(0);
+  transform: translate(60vw, 100px) rotateZ(270deg) scale(0.4) rotateY(0);
 }
 
 80% {
-  transform: translate(30vw, 0) rotate(360deg) scale(1) rotateY(360deg);
+  transform: translate(30vw, 0) rotateZ(360deg) scale(1) rotateY(360deg);
 }
 
 100% {
-  transform: translate(calc(0vw - 400%), 0) rotate(0) scale(1) rotateY(360deg);
+  transform: translate(calc(0vw - 400%), 0) rotateZ(0) scale(1) rotateY(360deg);
 }
 `
 
@@ -125,6 +125,7 @@ const Fish = styled.img`
   transform: translate(100vw, 0);
   animation-duration: ${server.FRESH_FISH - 1000}ms;
   animation-fill-mode: forwards;
+  z-index: 10;
 
   ${props => props.variant === 0 && css`
     animation-name: ${bigSwim};
