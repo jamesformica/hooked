@@ -10,7 +10,8 @@ const { HOST, PORT, TICK_RATE, FRESH_FISH } = server
 let freshFishies = []
 let stream = []
 
-const wss = new WebSocket.Server({ port: PORT, host: HOST })
+const realPort = process.env.PORT || PORT
+const wss = new WebSocket.Server({ port: realPort, host: HOST })
 
 // Server has started
 wss.on('listening', () => {
@@ -36,7 +37,7 @@ wss.on('connection', (ws, req) => {
       const id = `${uuid()}`
       const fishyData = { id, time }
 
-      // Add to stream and increment fishy total 
+      // Add to stream and increment fishy total
       stream.push(fishyData)
       freshFishies.push(fishyData)
 

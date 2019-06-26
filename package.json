@@ -7,7 +7,9 @@
     "start": "concurrently -p \"[{name}]\" -n \"NODE,REACT\" -c \"bgMagenta.bold,bgYellow.bold\" \"yarn start:server\" \"yarn start:client\"",
     "start:server": "babel-node ./backend/server.js",
     "start:client": "parcel ./ui/index.html",
-    "build:client": "parcel build ./ui/index.html"
+    "build:client": "parcel build ./ui/index.html",
+    "build:common": "babel ./common -d ./dist-server/common",
+    "build:server": "yarn build:common && babel ./backend -d ./dist-server/backend"
   },
   "dependencies": {
     "concurrently": "^4.1.0",
@@ -19,7 +21,8 @@
     "ws": "^7.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-0",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "babel-plugin-styled-components": "^1.10.0",
