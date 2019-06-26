@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 
-const URL = 'ws://localhost:1019'
 const RETRY_INTERVAL = 2000
 
 function useWebSocket(dispatch) {
   const [retryCount, setCount] = useState(0)
 
   useEffect(() => {
-    const connection = new WebSocket(URL)
+    const connection = new WebSocket(process.env.BACKEND_URL)
 
     connection.onopen = () => {
       dispatch({

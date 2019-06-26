@@ -6,7 +6,8 @@
   "scripts": {
     "start": "concurrently -p \"[{name}]\" -n \"NODE,REACT\" -c \"bgMagenta.bold,bgYellow.bold\" \"yarn start:server\" \"yarn start:client\"",
     "start:server": "babel-node ./backend/server.js",
-    "start:client": "parcel ./ui/index.html"
+    "start:client": "parcel ./ui/index.html",
+    "build:client": "parcel build ./ui/index.html"
   },
   "dependencies": {
     "concurrently": "^4.1.0",
