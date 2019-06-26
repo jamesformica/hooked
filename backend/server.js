@@ -16,7 +16,7 @@ const wss = new WebSocket.Server({ port: realPort, host: HOST })
 // Server has started
 wss.on('listening', () => {
   const { port, address } = wss.address()
-  console.log(`Server running at ${chalk.bold.magenta(
+  console.log(`Server running @ ${chalk.bold.magenta(
     `http://${address || 'localhost'}:${port}`
   )}`)
 
