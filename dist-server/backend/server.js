@@ -30,7 +30,7 @@ wss.on('listening', function () {
       port = _wss$address.port,
       address = _wss$address.address;
 
-  console.log("Server running at ".concat(_chalk["default"].bold.magenta("http://".concat(address || 'localhost', ":").concat(port))));
+  console.log("Server running @ ".concat(_chalk["default"].bold.magenta("http://".concat(address || 'localhost', ":").concat(port))));
   broadcastLoop();
 });
 wss.on('connection', function (ws, req) {
