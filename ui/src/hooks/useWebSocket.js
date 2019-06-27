@@ -6,13 +6,7 @@ function useWebSocket(dispatch) {
   const [retryCount, setCount] = useState(0)
 
   useEffect(() => {
-    let connection
-    try {
-      connection = new WebSocket(process.env.BACKEND_URL)
-    } catch (e) {
-      console.log(e)
-      return
-    }
+    const connection = new WebSocket(process.env.BACKEND_URL)
 
     connection.onopen = () => {
       dispatch({

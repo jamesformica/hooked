@@ -33,13 +33,8 @@ const Sea = () => {
     <SeaBackground>
       <SeaGraphics />
       <FishWrapper ref={sea}>
-        {fishies.map(f => (
-          <Fish
-            key={f.id}
-            y={f.y}
-            variant={f.variant}
-            delay={f.delay}
-          />
+        {fishies.map(({ id, ...rest }) => (
+          <Fish key={id} {...rest} />
         ))}
       </FishWrapper>
       <Boat />

@@ -5,8 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start": "concurrently -p \"[{name}]\" -n \"NODE,REACT\" -c \"bgMagenta.bold,bgYellow.bold\" \"yarn start:server\" \"yarn start:client\"",
-    "start:server": "babel-node ./backend/server.js",
     "start:client": "parcel ./ui/index.html",
+    "start:server": "babel-node ./backend/server.js",
+    "start:server:prod": "node ./dist-server/backend/server.js ",
     "build:client": "parcel build ./ui/index.html",
     "build:common": "babel ./common -d ./dist-server/common",
     "build:server": "yarn build:common && babel ./backend -d ./dist-server/backend"
