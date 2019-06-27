@@ -10,12 +10,12 @@
     "start:server:prod": "node ./dist-server/backend/server.js ",
     "build:client": "parcel build ./ui/index.html",
     "build:common": "babel ./common -d ./dist-server/common",
-    "build:server": "yarn build:common && babel ./backend -d ./dist-server/backend",
-    "heroku-postbuild": "yarn install --force"
+    "build:server": "yarn build:common && babel ./backend -d ./dist-server/backend"
   },
   "dependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
     "concurrently": "^4.1.0",
     "lodash": "^4.17.11",
     "react": "^16.8.6",
@@ -26,7 +26,6 @@
   },
   "devDependencies": {
     "@babel/node": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
     "babel-plugin-styled-components": "^1.10.0",
     "chalk": "^2.4.2",
     "parcel-bundler": "^1.12.3"
